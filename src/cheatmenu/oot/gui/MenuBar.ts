@@ -1,4 +1,4 @@
-import { IOOTCore } from 'modloader64_api/OOT/OOTAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import { IImGui } from 'modloader64_api/Sylvain/ImGui';
 import { renderLinkMenu } from './LinkMenu';
 import { renderEquipmentMenu } from './items/EquipmentMenu';
@@ -7,7 +7,7 @@ import * as renderDungeonItems from './items/DungeonItems';
 import * as renderQuestItems from './items/QuestItems';
 import { renderConsumablesMenu } from './ConsumablesMenu';
 
-export function renderMenuBar(core: IOOTCore, ImGui: IImGui){
+export function renderMenuBar(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     
     if(ImGui.beginMainMenuBar()){
         if(ImGui.beginMenu("Mods")){

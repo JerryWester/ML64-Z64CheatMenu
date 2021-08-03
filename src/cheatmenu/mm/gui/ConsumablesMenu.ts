@@ -1,9 +1,9 @@
 import { ComboFlags, IImGui, number_ref, string_ref } from 'modloader64_api/Sylvain/ImGui';
-import { IMMCore } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import * as capacity from './MaxCapacity';
 import { max } from '../cheatmenu';
 
-export function renderConsumablesMenu(core: IMMCore, ImGui: IImGui) {
+export function renderConsumablesMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.beginCombo("Rupees", "", ComboFlags.NoPreview)) {
         let rupeeMax: number = capacity.wallet(core.save.inventory.wallet);
         let rupees: number_ref = [core.save.rupees];

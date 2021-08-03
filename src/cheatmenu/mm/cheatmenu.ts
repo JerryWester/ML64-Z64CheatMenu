@@ -1,5 +1,5 @@
 import { IModLoaderAPI } from 'modloader64_api/IModLoaderAPI';
-import { IMMCore, LinkState } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import { bool_ref } from 'modloader64_api/Sylvain/ImGui';
 import { renderMenuBar } from './gui/MenuBar';
 import * as capacity from './gui/MaxCapacity';
@@ -41,8 +41,8 @@ export let grav: IGravity = {
     gravity: -100
 }
 
-export function onTick(ModLoader: IModLoaderAPI, core: IMMCore) {
-    if (grav.updateGrav && core.link.state === LinkState.STANDING) {
+export function onTick(ModLoader: IModLoaderAPI, core: Z64API.MM.IMMCore) {
+    if (grav.updateGrav && core.link.state === Z64API.Z64.LinkState.STANDING) {
         grav.updateGrav = false;
         ModLoader.emulator.rdramWrite16(0x8038256C, grav.gravity);
     }
@@ -78,7 +78,7 @@ export function onTick(ModLoader: IModLoaderAPI, core: IMMCore) {
     }
 }
 
-export function onViUpdate(ModLoader: IModLoaderAPI, core: IMMCore) {
+export function onViUpdate(ModLoader: IModLoaderAPI, core: Z64API.MM.IMMCore) {
     renderMenuBar(core, ModLoader.emulator, ModLoader.ImGui);
     renderModWindow(core, ModLoader.emulator, ModLoader.ImGui);
     renderWindowButton(ModLoader.ImGui);

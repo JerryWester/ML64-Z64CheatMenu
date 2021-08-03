@@ -1,5 +1,5 @@
 import { IModLoaderAPI } from 'modloader64_api/IModLoaderAPI';
-import { IOOTCore } from 'modloader64_api/OOT/OOTAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import { bool_ref, number_ref, string_ref } from 'modloader64_api/Sylvain/ImGui';
 import * as capacity from './gui/MaxCapacity';
 import { renderMenuBar } from './gui/MenuBar';
@@ -44,7 +44,7 @@ export let max: IMax = {
 export const changeAge: bool_ref = [false];
 export const entranceIndex: string_ref = ["0"];
 
-export function onTick(ModLoader: IModLoaderAPI, core: IOOTCore) {
+export function onTick(ModLoader: IModLoaderAPI, core: Z64API.OoT.IOOTCore) {
     if(max.hearts[0]){
         core.save.health = core.save.heart_containers * 0x10;
     }
@@ -108,7 +108,7 @@ export function onTick(ModLoader: IModLoaderAPI, core: IOOTCore) {
     }
 }
 
-export function onViUpdate(ModLoader: IModLoaderAPI, core: IOOTCore) {
+export function onViUpdate(ModLoader: IModLoaderAPI, core: Z64API.OoT.IOOTCore) {
     if(changeAge[0]){
         if(ModLoader.emulator.rdramRead32(0x801CA0E4) === 0){
             changeAge[0] = false;

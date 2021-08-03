@@ -1,69 +1,69 @@
-import { AmmoUpgrade, Magic, MagicQuantities, Wallet } from 'modloader64_api/OOT/OOTAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 
-export function wallet(size: Wallet): number {
+export function wallet(size: Z64API.Z64.Wallet): number {
     switch (size) {
-        case Wallet.CHILD:
+        case Z64API.Z64.Wallet.CHILD:
             return 99;
-        case Wallet.ADULT:
+        case Z64API.Z64.Wallet.ADULT:
             return 200;
-        case Wallet.GIANT:
+        case Z64API.Z64.Wallet.GIANT:
             return 500;
-        case Wallet.TYCOON:
+        case Z64API.Z64.Wallet.TYCOON:
         default:
             return 999;
     }
 }
 
-export function quiver(size: AmmoUpgrade): number {
+export function quiver(size: Z64API.Z64.AmmoUpgrade): number {
     switch (size) {
-        case AmmoUpgrade.NONE:
+        case Z64API.Z64.AmmoUpgrade.NONE:
             return 0;
-        case AmmoUpgrade.BASE:
+        case Z64API.Z64.AmmoUpgrade.BASE:
             return 30;
-        case AmmoUpgrade.UPGRADED:
+        case Z64API.Z64.AmmoUpgrade.UPGRADED:
             return 40;
-        case AmmoUpgrade.MAX:
+        case Z64API.Z64.AmmoUpgrade.MAX:
         default:
             return 50;
     }
 }
 
-export function dekuSticks(size: AmmoUpgrade): number {
+export function dekuSticks(size: Z64API.Z64.AmmoUpgrade): number {
     switch (size) {
-        case AmmoUpgrade.NONE:
+        case Z64API.Z64.AmmoUpgrade.NONE:
             return 0;
-        case AmmoUpgrade.BASE:
+        case Z64API.Z64.AmmoUpgrade.BASE:
             return 10;
-        case AmmoUpgrade.UPGRADED:
+        case Z64API.Z64.AmmoUpgrade.UPGRADED:
             return 20;
-        case AmmoUpgrade.MAX:
+        case Z64API.Z64.AmmoUpgrade.MAX:
         default:
             return 30;
     }
 }
 
-export function bombBag(size: AmmoUpgrade): number {
+export function bombBag(size: Z64API.Z64.AmmoUpgrade): number {
     switch (size) {
-        case AmmoUpgrade.NONE:
+        case Z64API.Z64.AmmoUpgrade.NONE:
             return 0;
-        case AmmoUpgrade.BASE:
+        case Z64API.Z64.AmmoUpgrade.BASE:
             return 20;
-        case AmmoUpgrade.UPGRADED:
+        case Z64API.Z64.AmmoUpgrade.UPGRADED:
             return 30;
-        case AmmoUpgrade.MAX:
+        case Z64API.Z64.AmmoUpgrade.MAX:
         default:
             return 40;
     }
 }
 
-export function magic(size: Magic): MagicQuantities {
+export function magic(size: Z64API.Z64.Magic): Z64API.Z64.MagicQuantities {
     switch (size) {
-        case Magic.NONE:
-            return MagicQuantities.NONE;
-        case Magic.NORMAL:
-            return MagicQuantities.NORMAL;
+        case Z64API.Z64.Magic.NONE:
+            return Z64API.Z64.MagicQuantities.NONE;
+        case Z64API.Z64.Magic.NORMAL:
+            return Z64API.Z64.MagicQuantities.NORMAL;
         default:
-        case Magic.EXTENDED:
-            return MagicQuantities.EXTENDED;
+        case Z64API.Z64.Magic.EXTENDED:
+            return Z64API.Z64.MagicQuantities.EXTENDED;
     }
 }

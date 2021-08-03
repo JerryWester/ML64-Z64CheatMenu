@@ -1,5 +1,5 @@
 import { IImGui } from 'modloader64_api/Sylvain/ImGui';
-import { IMMCore } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import { renderLinkMenu } from './LinkMenu';
 import { renderMiscMenu } from './MiscMenu';
 import { renderConsumablesMenu } from './ConsumablesMenu';
@@ -9,7 +9,7 @@ import { renderCButtonItemMenu } from './Items/CButtonItemsMenu';
 import { renderMasksMenu } from './Items/MaskMenu';
 import IMemory from 'modloader64_api/IMemory';
 
-export function renderMenuBar(core: IMMCore, emulator: IMemory, ImGui: IImGui) {
+export function renderMenuBar(core: Z64API.MM.IMMCore, emulator: IMemory, ImGui: IImGui) {
 
     if (ImGui.beginMainMenuBar()) {
         if (ImGui.beginMenu("Mods")) {
@@ -34,19 +34,19 @@ export function renderMenuBar(core: IMMCore, emulator: IMemory, ImGui: IImGui) {
                     if (ImGui.beginMenu("Quest Items")) {
                         if (ImGui.beginMenu("Dungeon Items")) {
                             if (ImGui.beginMenu("Woodfall")) {
-                                renderDungeonItems.woodfall(emulator, ImGui);
+                                renderDungeonItems.woodfall(core, ImGui);
                                 ImGui.endMenu();
                             }
                             if (ImGui.beginMenu("Snowhead")) {
-                                renderDungeonItems.snowhead(emulator, ImGui);
+                                renderDungeonItems.snowhead(core, ImGui);
                                 ImGui.endMenu();
                             }
                             if (ImGui.beginMenu("Great Bay")) {
-                                renderDungeonItems.greatBay(emulator, ImGui);
+                                renderDungeonItems.greatBay(core, ImGui);
                                 ImGui.endMenu();
                             }
                             if (ImGui.beginMenu("Stone Tower")) {
-                                renderDungeonItems.stoneTower(emulator, ImGui);
+                                renderDungeonItems.stoneTower(core, ImGui);
                                 ImGui.endMenu();
                             }
                             ImGui.endMenu();

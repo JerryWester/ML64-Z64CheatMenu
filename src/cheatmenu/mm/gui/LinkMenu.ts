@@ -1,9 +1,9 @@
 import { ComboFlags, IImGui, number_ref } from 'modloader64_api/Sylvain/ImGui';
-import { IMMCore, MMForms } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import * as capacity from './MaxCapacity';
 import { max } from '../cheatmenu';
 
-export function renderLinkMenu(core: IMMCore, ImGui: IImGui) {
+export function renderLinkMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.beginCombo("Heart Containers", "", ComboFlags.NoPreview)) {
         let heart_containers: number_ref = [core.save.heart_containers / 16];
         if (ImGui.sliderInt("##heart_containers", heart_containers, 0, 20)) {
@@ -41,30 +41,31 @@ export function renderLinkMenu(core: IMMCore, ImGui: IImGui) {
         ImGui.checkbox("Max", max.magic);
         ImGui.endCombo();
     }
+
     // ImGui.text("Transformation");
     // let transform_ref: number_ref = [core.save.current_transformation];
     // if (ImGui.combo("##transformation", transform_ref, LinkForms)) {
     //     core.save.current_transformation = transform_ref[0];
     // }
     if (ImGui.beginCombo("Transformation", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("Human", core.save.current_transformation === MMForms.HUMAN)) {
-            core.save.current_transformation = MMForms.HUMAN;
+        if (ImGui.selectable("Human", core.save.current_transformation === Z64API.Z64.AgeOrForm.HUMAN)) {
+            core.save.current_transformation = Z64API.Z64.AgeOrForm.HUMAN;
         }
-        if (ImGui.selectable("Deku", core.save.current_transformation === MMForms.DEKU)) {
-            core.save.current_transformation = MMForms.DEKU;
+        if (ImGui.selectable("Deku", core.save.current_transformation === Z64API.Z64.AgeOrForm.DEKU)) {
+            core.save.current_transformation = Z64API.Z64.AgeOrForm.DEKU;
         }
-        if (ImGui.selectable("Goron", core.save.current_transformation === MMForms.GORON)) {
-            core.save.current_transformation = MMForms.GORON;
+        if (ImGui.selectable("Goron", core.save.current_transformation === Z64API.Z64.AgeOrForm.GORON)) {
+            core.save.current_transformation = Z64API.Z64.AgeOrForm.GORON;
         }
-        if (ImGui.selectable("Zora", core.save.current_transformation === MMForms.ZORA)) {
-            core.save.current_transformation = MMForms.ZORA;
+        if (ImGui.selectable("Zora", core.save.current_transformation === Z64API.Z64.AgeOrForm.ZORA)) {
+            core.save.current_transformation = Z64API.Z64.AgeOrForm.ZORA;
         }
-        if (ImGui.selectable("Fierce Deity", core.save.current_transformation === MMForms.FD)) {
-            core.save.current_transformation = MMForms.FD;
+        if (ImGui.selectable("Fierce Deity", core.save.current_transformation === Z64API.Z64.AgeOrForm.FD)) {
+            core.save.current_transformation = Z64API.Z64.AgeOrForm.FD;
         }
         ImGui.endCombo();
     }
-    if (ImGui.checkbox("Double Defense", [core.save.double_defense === 20])) {
+    if (ImGui.checkbox("Double Defense", [core.save.double_defense !== 0])) {
         core.save.double_defense = (core.save.double_defense + 20) % 40;
     }
 }

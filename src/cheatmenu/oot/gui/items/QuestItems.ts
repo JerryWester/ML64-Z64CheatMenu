@@ -1,7 +1,7 @@
-import { IOOTCore } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { IImGui, ComboFlags, number_ref } from "modloader64_api/Sylvain/ImGui";
 
-export function songsMenu(core: IOOTCore, ImGui: IImGui){
+export function songsMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginCombo("Regular Songs", "", ComboFlags.NoPreview)){
         if(ImGui.checkbox("Zelda's Lullaby", [core.save.questStatus.zeldasLullaby])){
             core.save.questStatus.zeldasLullaby = !core.save.questStatus.zeldasLullaby;
@@ -46,7 +46,7 @@ export function songsMenu(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function gemsMenu(core: IOOTCore, ImGui: IImGui){
+export function gemsMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Kokiri Emerald", [core.save.questStatus.kokiriEmerald])){
         core.save.questStatus.kokiriEmerald = !core.save.questStatus.kokiriEmerald;
     }
@@ -58,7 +58,7 @@ export function gemsMenu(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function medallionsMenu(core: IOOTCore, ImGui: IImGui){
+export function medallionsMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Forest Medallion", [core.save.questStatus.forestMedallion])){
         core.save.questStatus.forestMedallion = !core.save.questStatus.forestMedallion;
     }
@@ -79,7 +79,7 @@ export function medallionsMenu(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function goldSkulltulas(core: IOOTCore, ImGui: IImGui){
+export function goldSkulltulas(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     let goldSkulltulas: number_ref = [core.save.questStatus.goldSkulltulas];
     if(ImGui.sliderInt("##goldSkulltulas", goldSkulltulas, 0, 100)){
         core.save.questStatus.goldSkulltulas = goldSkulltulas[0];
@@ -87,13 +87,13 @@ export function goldSkulltulas(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function stoneOfAgony(core: IOOTCore, ImGui: IImGui){
+export function stoneOfAgony(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Stone of Agony", [core.save.questStatus.stoneOfAgony])){
         core.save.questStatus.stoneOfAgony = !core.save.questStatus.stoneOfAgony;
     }
 }
 
-export function gerudoMembershipCard(core: IOOTCore, ImGui: IImGui){
+export function gerudoMembershipCard(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Gerudo Membership Card", [core.save.questStatus.gerudoMembershipCard])){
         core.save.questStatus.gerudoMembershipCard = !core.save.questStatus.gerudoMembershipCard;
     }

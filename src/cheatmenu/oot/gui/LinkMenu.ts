@@ -1,5 +1,5 @@
 import { IImGui, number_ref, ComboFlags } from "modloader64_api/Sylvain/ImGui";
-import { IOOTCore } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { changeAge, entranceIndex, max } from "../cheatmenu";
 import { openPosWindow } from "./ModWindow";
 import * as capacity from "./MaxCapacity";
@@ -12,7 +12,7 @@ function timeParse(time: number): string {
     return `${hourParse}:${minuteParse} ${hour < 12 ? "AM" : "PM"}`
 }
 
-export function renderLinkMenu(core: IOOTCore, ImGui: IImGui){
+export function renderLinkMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginCombo("Heart Containers", "", ComboFlags.NoPreview)){
         let heart_containers: number_ref = [core.save.heart_containers];
         if(ImGui.sliderInt("##heart_containers", heart_containers, 0, 20)){
