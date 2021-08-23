@@ -9,7 +9,7 @@ import * as MM from './mm/cheatmenu';
 import { EventHandler } from 'modloader64_api/EventHandler';
 import { ModLoaderAPIInject } from "modloader64_api/ModLoaderAPIInjector";
 import { onTick, Init } from 'modloader64_api/PluginLifecycle';
-
+import {IZ64Main} from 'Z64Lib/API/Common/IZ64Main'
 enum SupportedCores {
     //OCARINA_OF_TIME = "OcarinaofTime",
     //MAJORAS_MASK = "MajorasMask",
@@ -22,7 +22,7 @@ export class CheatmenuClient {
     @ModLoaderAPIInject()
     ModLoader!: IModLoaderAPI;
     @InjectCore()
-    core!: Z64API.OoT.IOOTCore | Z64API.MM.IMMCore;
+    core!: IZ64Main;
 
     game!: number;
 
@@ -37,10 +37,10 @@ export class CheatmenuClient {
     onTick() {
         switch (this.game) {
             case Z64LibSupportedGames.OCARINA_OF_TIME:
-                OOT.onTick(this.ModLoader, this.core as Z64API.OoT.IOOTCore);
+                OOT.onTick(this.ModLoader, this.core.OOT!);
                 break;
             case Z64LibSupportedGames.MAJORAS_MASK:
-                MM.onTick(this.ModLoader, this.core as Z64API.MM.IMMCore);
+                MM.onTick(this.ModLoader, this.core.MM!);
                 break;
         }
     }
@@ -50,10 +50,10 @@ export class CheatmenuClient {
 
         switch (this.game) {
             case Z64LibSupportedGames.OCARINA_OF_TIME:
-                OOT.onViUpdate(this.ModLoader, this.core as Z64API.OoT.IOOTCore);
+                OOT.onViUpdate(this.ModLoader, this.core.OOT!);
                 break;
             case Z64LibSupportedGames.MAJORAS_MASK:
-                MM.onViUpdate(this.ModLoader, this.core as Z64API.MM.IMMCore);
+                MM.onViUpdate(this.ModLoader, this.core.MM!);
                 break;
         }
 
@@ -62,7 +62,7 @@ export class CheatmenuClient {
     @EventHandler(Z64API.MM.MMEvents.ON_SCENE_CHANGE)
     onSceneChange() {
         if (this.game === Z64LibSupportedGames.OCARINA_OF_TIME) {
-            OOT.entranceIndex[0] = (this.core as Z64API.OoT.IOOTCore).save.entrance_index.toString(16);
+            OOT.entranceIndex[0] = (this.core.OOT!).save.entrance_index.toString(16);
         } else
             if (this.game === Z64LibSupportedGames.MAJORAS_MASK) {
                 MM.grav.updateGrav = false;

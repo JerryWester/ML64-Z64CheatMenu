@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "modloader64_deps": {
-	  "Z64Lib": "https://github.com/hylian-modding/ML64-Z64Lib.git"
+    "Z64Lib": "https://github.com/hylian-modding/ML64-Z64Lib.git"
   },
   "dependencies": {},
   "devDependencies": {},
