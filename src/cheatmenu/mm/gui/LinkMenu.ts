@@ -4,10 +4,10 @@ import * as capacity from './MaxCapacity';
 import { max } from '../cheatmenu';
 
 export function renderLinkMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
-    if (ImGui.beginCombo("Heart Containers", "", ComboFlags.NoPreview)) {
-        let heart_containers: number_ref = [core.save.heart_containers / 16];
-        if (ImGui.sliderInt("##heart_containers", heart_containers, 0, 20)) {
-            core.save.heart_containers = heart_containers[0] * 16;
+    if(ImGui.beginCombo("Heart Containers", "", ComboFlags.NoPreview)){
+        let heart_containers: number_ref = [core.save.heart_containers];
+        if(ImGui.sliderInt("##heart_containers", heart_containers, 0, 20)){
+            core.save.heart_containers = heart_containers[0];
         }
         ImGui.endCombo();
     }
