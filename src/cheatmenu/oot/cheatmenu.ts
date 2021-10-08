@@ -45,6 +45,9 @@ export const changeAge: bool_ref = [false];
 export const entranceIndex: string_ref = ["0"];
 
 export function onTick(ModLoader: IModLoaderAPI, core: Z64API.OoT.IOOTCore) {
+    if (changeAge[0]) {
+        core.save.age = Z64API.Z64.AgeOrForm.ADULT ? Z64API.Z64.AgeOrForm.CHILD : Z64API.Z64.AgeOrForm.ADULT
+    }
     if(max.hearts[0]){
         core.save.health = core.save.heart_containers * 0x10;
     }
@@ -109,13 +112,6 @@ export function onTick(ModLoader: IModLoaderAPI, core: Z64API.OoT.IOOTCore) {
 }
 
 export function onViUpdate(ModLoader: IModLoaderAPI, core: Z64API.OoT.IOOTCore) {
-    if(changeAge[0]){
-        if(ModLoader.emulator.rdramRead32(0x801CA0E4) === 0){
-            changeAge[0] = false;
-            core.save.age = (core.save.age + 1) % 2;
-        }
-    }
-
     renderMenuBar(core, ModLoader.ImGui);
     renderModWindow(core, ModLoader.ImGui);
     renderPosWindow(core, ModLoader.ImGui);

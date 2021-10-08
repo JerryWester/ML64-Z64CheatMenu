@@ -5,8 +5,8 @@ import { CheatmenuClient } from './cheatmenuClient';
 class cheatmenu implements IPlugin {
 
     ModLoader!: IModLoaderAPI;
-    @SidedProxy(ProxySide.CLIENT, CheatmenuClient)
-    client!: CheatmenuClient;
+    // @SidedProxy(ProxySide.CLIENT, CheatmenuClient)
+    // client!: CheatmenuClient;
 
     preinit() {}
     init() {}

@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "JerryWester",
+  "contributors": ["Psi-Hate"],
+  "credits": "Psi-Hate for updating the project to the Z64 core",
   "license": "ISC",
   "modloader64_deps": {
     "Z64Lib": "https://github.com/hylian-modding/ML64-Z64Lib.git"

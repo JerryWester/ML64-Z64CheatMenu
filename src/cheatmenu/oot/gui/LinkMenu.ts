@@ -64,12 +64,5 @@ export function renderLinkMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
         core.save.double_defense = (core.save.double_defense + 20) % 40;
     }
     ImGui.checkbox("Position", openPosWindow);
-    if(ImGui.beginCombo("Teleport to Area", "", ComboFlags.NoPreview)){
-        ImGui.inputTextWithHint("##changeScene", "Scene Number", entranceIndex);
-        if (ImGui.button("Warp")){
-            core.commandBuffer.runWarp(parseInt(entranceIndex[0], 16), 0, ()=>{});
-        }
-        ImGui.endCombo();
-    }
     ImGui.checkbox("Change Age", changeAge);
 }

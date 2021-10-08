@@ -10,12 +10,6 @@ import { EventHandler } from 'modloader64_api/EventHandler';
 import { ModLoaderAPIInject } from "modloader64_api/ModLoaderAPIInjector";
 import { onTick, Init } from 'modloader64_api/PluginLifecycle';
 import {IZ64Main} from 'Z64Lib/API/Common/IZ64Main'
-enum SupportedCores {
-    //OCARINA_OF_TIME = "OcarinaofTime",
-    //MAJORAS_MASK = "MajorasMask",
-    Z64Lib = "Z64Lib",
-    UNKNOWN = ""
-}
 
 export class CheatmenuClient {
 
@@ -30,8 +24,6 @@ export class CheatmenuClient {
     init() {
         this.game = Z64_GAME;
         this.ModLoader.logger.info("CheatMenu: " + Z64LibSupportedGames[this.game] + " Loaded!");
-        // if (this.core.rom_header)
-        //     console.log(`\nMod Loaded: ${this.game}\nGame Loaded: ${this.core.rom_header.name}`)
     }
     @onTick()
     onTick() {
@@ -45,19 +37,19 @@ export class CheatmenuClient {
         }
     }
 
-    @onViUpdate()
-    onViUpdate() {
+    // @onViUpdate()
+    // onViUpdate() {
 
-        switch (this.game) {
-            case Z64LibSupportedGames.OCARINA_OF_TIME:
-                OOT.onViUpdate(this.ModLoader, this.core.OOT!);
-                break;
-            case Z64LibSupportedGames.MAJORAS_MASK:
-                MM.onViUpdate(this.ModLoader, this.core.MM!);
-                break;
-        }
+    //     switch (this.game) {
+    //         case Z64LibSupportedGames.OCARINA_OF_TIME:
+    //             OOT.onViUpdate(this.ModLoader, this.core.OOT!);
+    //             break;
+    //         case Z64LibSupportedGames.MAJORAS_MASK:
+    //             MM.onViUpdate(this.ModLoader, this.core.MM!);
+    //             break;
+    //     }
 
-    }
+    // }
 
     @EventHandler(Z64API.MM.MMEvents.ON_SCENE_CHANGE)
     onSceneChange() {
