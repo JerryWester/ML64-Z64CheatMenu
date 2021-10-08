@@ -1,5 +1,5 @@
 import { bool_ref, IImGui, number_ref, Cond, MouseButton } from "modloader64_api/Sylvain/ImGui";
-import { IOOTCore } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { xy } from "modloader64_api/Sylvain/vec";
 import { renderLinkMenu } from './LinkMenu';
 import { renderEquipmentMenu } from './items/EquipmentMenu';
@@ -114,7 +114,7 @@ const modWindows: cheatMenuWindows = {
     consumables: [false]
 }
 
-function renderDungeonItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
+function renderDungeonItemsMenuTabs(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginTabBar("Dungeon")){
         if(!modWindows.itemsTabs.questTabs.dungeonTabs.dekuTree[0]){
             if(ImGui.beginTabItem("Inside the Deku Tree")){
@@ -237,7 +237,7 @@ function renderDungeonItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-function renderQuestItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
+function renderQuestItemsMenuTabs(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginTabBar("Quest")){
         if(!modWindows.itemsTabs.questTabs.dungeon[0]){
             if(ImGui.beginTabItem("Dungeon")){
@@ -298,7 +298,7 @@ function renderQuestItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-function renderItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
+function renderItemsMenuTabs(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginTabBar("Items")){
         if(!modWindows.itemsTabs.equipment[0]){
             if(ImGui.beginTabItem("Equipment")){
@@ -331,7 +331,7 @@ function renderItemsMenuTabs(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-function renderCheatMenuTabs(core: IOOTCore, ImGui: IImGui){
+function renderCheatMenuTabs(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginTabBar("##cheatMenuTabs")){
         if(!modWindows.link[0]){
             if(ImGui.beginTabItem("Link")){
@@ -364,7 +364,7 @@ function renderCheatMenuTabs(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function renderModWindow(core: IOOTCore, ImGui: IImGui){
+export function renderModWindow(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(modWindows.link[0]){
         if(ImGui.begin("Link", modWindows.link)){
             renderLinkMenu(core, ImGui);
@@ -540,7 +540,7 @@ export function renderWindowButton(ImGui: IImGui){
     }
 }
 
-export function renderPosWindow(core: IOOTCore, ImGui: IImGui){
+export function renderPosWindow(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(openPosWindow[0]){
         if(ImGui.begin("Position", openPosWindow)){
             ImGui.setWindowSize(xy(300, 200), Cond.FirstUseEver);

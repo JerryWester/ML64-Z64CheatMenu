@@ -10,3 +10,5 @@
 !/src/**/*.*
 !/.gitignore
 !/update.json
+src/Vanillamizer.bps
+src/MMVanillamizer.bps

@@ -1,9 +1,9 @@
-import { IOOTCore } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { IImGui, ComboFlags, number_ref } from "modloader64_api/Sylvain/ImGui";
 import { max } from "../cheatmenu";
 import * as capacity from "./MaxCapacity";
 
-export function renderConsumablesMenu(core: IOOTCore, ImGui: IImGui){
+export function renderConsumablesMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginCombo("Rupees", "", ComboFlags.NoPreview)){
         let rupee_count: number_ref = [core.save.rupee_count];
         if(ImGui.sliderInt("##rupee_count", rupee_count, 0, capacity.wallet(core.save.inventory.wallet))){

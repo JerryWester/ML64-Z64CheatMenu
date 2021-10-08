@@ -1,27 +1,27 @@
 import { bool_ref, ComboFlags, IImGui, number_ref } from 'modloader64_api/Sylvain/ImGui';
-import { AmmoUpgrade, IMMCore, Shield, Sword, Wallet } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 
-export function equipmentMenu(core: IMMCore, ImGui: IImGui) {
+export function equipmentMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.beginCombo("Sword", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("None", core.save.swords.swordLevel === Sword.NONE)) {
-            core.save.swords.swordLevel = Sword.NONE;
+        if (ImGui.selectable("None", core.save.swords.swordLevel === Z64API.Z64.Sword.NONE)) {
+            core.save.swords.swordLevel = Z64API.Z64.Sword.NONE;
             core.save.sword_helper.updateSwordonB();
         }
-        if (ImGui.selectable("Kokiri", core.save.swords.swordLevel === Sword.KOKIRI)) {
-            core.save.swords.swordLevel = Sword.KOKIRI;
+        if (ImGui.selectable("Kokiri", core.save.swords.swordLevel === Z64API.Z64.Sword.KOKIRI_MM)) {
+            core.save.swords.swordLevel = Z64API.Z64.Sword.KOKIRI_MM;
             core.save.sword_helper.updateSwordonB();
         }
-        if (ImGui.selectable("Razor", core.save.swords.swordLevel === Sword.RAZOR)) {
-            core.save.swords.swordLevel = Sword.RAZOR;
+        if (ImGui.selectable("Razor", core.save.swords.swordLevel === Z64API.Z64.Sword.RAZOR)) {
+            core.save.swords.swordLevel = Z64API.Z64.Sword.RAZOR;
             core.save.sword_helper.updateSwordonB();
         }
-        if (ImGui.selectable("Gilded", core.save.swords.swordLevel === Sword.GILDED)) {
-            core.save.swords.swordLevel = Sword.GILDED;
+        if (ImGui.selectable("Gilded", core.save.swords.swordLevel === Z64API.Z64.Sword.GILDED)) {
+            core.save.swords.swordLevel = Z64API.Z64.Sword.GILDED;
             core.save.sword_helper.updateSwordonB();
         }
         ImGui.endCombo();
     }
-    if (core.save.swords.swordLevel === Sword.RAZOR) {
+    if (core.save.swords.swordLevel === Z64API.Z64.Sword.RAZOR) {
         if (ImGui.beginCombo("Razor Sword Durability", "", ComboFlags.NoPreview)) {
             let durability: number_ref = [core.save.razor_hits];
             if (ImGui.sliderInt("##razor_hits", durability, 0, 100)) {
@@ -31,56 +31,56 @@ export function equipmentMenu(core: IMMCore, ImGui: IImGui) {
         }
     }
     if (ImGui.beginCombo("Shield", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("None", core.save.shields.shieldLevel === Shield.NONE)) {
-            core.save.shields.shieldLevel = Shield.NONE;
+        if (ImGui.selectable("None", core.save.shields.shieldLevel === Z64API.Z64.Shield.NONE)) {
+            core.save.shields.shieldLevel = Z64API.Z64.Shield.NONE;
         }
-        if (ImGui.selectable("Hero", core.save.shields.shieldLevel === Shield.HERO)) {
-            core.save.shields.shieldLevel = Shield.HERO;
+        if (ImGui.selectable("Hero", core.save.shields.shieldLevel === Z64API.Z64.Shield.HERO)) {
+            core.save.shields.shieldLevel = Z64API.Z64.Shield.HERO;
         }
-        if (ImGui.selectable("Mirror", core.save.shields.shieldLevel === Shield.MIRROR)) {
-            core.save.shields.shieldLevel = Shield.MIRROR;
+        if (ImGui.selectable("Mirror", core.save.shields.shieldLevel === Z64API.Z64.Shield.MIRROR_MM)) {
+            core.save.shields.shieldLevel = Z64API.Z64.Shield.MIRROR_MM;
         }
         ImGui.endCombo();
     }
     if (ImGui.beginCombo("Wallet", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("Child", core.save.inventory.wallet === Wallet.CHILD)) {
-            core.save.inventory.wallet = Wallet.CHILD;
+        if (ImGui.selectable("Child", core.save.inventory.wallet === Z64API.Z64.Wallet.CHILD)) {
+            core.save.inventory.wallet = Z64API.Z64.Wallet.CHILD;
         }
-        if (ImGui.selectable("Adult", core.save.inventory.wallet === Wallet.ADULT)) {
-            core.save.inventory.wallet = Wallet.ADULT;
+        if (ImGui.selectable("Adult", core.save.inventory.wallet === Z64API.Z64.Wallet.ADULT)) {
+            core.save.inventory.wallet = Z64API.Z64.Wallet.ADULT;
         }
-        if (ImGui.selectable("Giant", core.save.inventory.wallet === Wallet.GIANT)) {
-            core.save.inventory.wallet = Wallet.GIANT;
+        if (ImGui.selectable("Giant", core.save.inventory.wallet === Z64API.Z64.Wallet.GIANT)) {
+            core.save.inventory.wallet = Z64API.Z64.Wallet.GIANT;
         }
         ImGui.endCombo();
     }
     if (ImGui.beginCombo("Quiver", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("None", core.save.inventory.quiver === AmmoUpgrade.NONE)) {
-            core.save.inventory.quiver = AmmoUpgrade.NONE;
+        if (ImGui.selectable("None", core.save.inventory.quiver === Z64API.Z64.AmmoUpgrade.NONE)) {
+            core.save.inventory.quiver = Z64API.Z64.AmmoUpgrade.NONE;
         }
-        if (ImGui.selectable("Normal", core.save.inventory.quiver === AmmoUpgrade.BASE)) {
-            core.save.inventory.quiver = AmmoUpgrade.BASE;
+        if (ImGui.selectable("Normal", core.save.inventory.quiver === Z64API.Z64.AmmoUpgrade.BASE)) {
+            core.save.inventory.quiver = Z64API.Z64.AmmoUpgrade.BASE;
         }
-        if (ImGui.selectable("Large", core.save.inventory.quiver === AmmoUpgrade.UPGRADED)) {
-            core.save.inventory.quiver = AmmoUpgrade.UPGRADED;
+        if (ImGui.selectable("Large", core.save.inventory.quiver === Z64API.Z64.AmmoUpgrade.UPGRADED)) {
+            core.save.inventory.quiver = Z64API.Z64.AmmoUpgrade.UPGRADED;
         }
-        if (ImGui.selectable("Largest", core.save.inventory.quiver === AmmoUpgrade.MAX)) {
-            core.save.inventory.quiver = AmmoUpgrade.MAX;
+        if (ImGui.selectable("Largest", core.save.inventory.quiver === Z64API.Z64.AmmoUpgrade.MAX)) {
+            core.save.inventory.quiver = Z64API.Z64.AmmoUpgrade.MAX;
         }
         ImGui.endCombo();
     }
     if (ImGui.beginCombo("Bombbag", "", ComboFlags.NoPreview)) {
-        if (ImGui.selectable("None", core.save.inventory.bombBag === AmmoUpgrade.NONE)) {
-            core.save.inventory.bombBag = AmmoUpgrade.NONE;
+        if (ImGui.selectable("None", core.save.inventory.bombBag === Z64API.Z64.AmmoUpgrade.NONE)) {
+            core.save.inventory.bombBag = Z64API.Z64.AmmoUpgrade.NONE;
         }
-        if (ImGui.selectable("Normal", core.save.inventory.bombBag === AmmoUpgrade.BASE)) {
-            core.save.inventory.bombBag = AmmoUpgrade.BASE;
+        if (ImGui.selectable("Normal", core.save.inventory.bombBag === Z64API.Z64.AmmoUpgrade.BASE)) {
+            core.save.inventory.bombBag = Z64API.Z64.AmmoUpgrade.BASE;
         }
-        if (ImGui.selectable("Big", core.save.inventory.bombBag === AmmoUpgrade.UPGRADED)) {
-            core.save.inventory.bombBag = AmmoUpgrade.UPGRADED;
+        if (ImGui.selectable("Big", core.save.inventory.bombBag === Z64API.Z64.AmmoUpgrade.UPGRADED)) {
+            core.save.inventory.bombBag = Z64API.Z64.AmmoUpgrade.UPGRADED;
         }
-        if (ImGui.selectable("Biggest", core.save.inventory.bombBag === AmmoUpgrade.MAX)) {
-            core.save.inventory.bombBag = AmmoUpgrade.MAX;
+        if (ImGui.selectable("Biggest", core.save.inventory.bombBag === Z64API.Z64.AmmoUpgrade.MAX)) {
+            core.save.inventory.bombBag = Z64API.Z64.AmmoUpgrade.MAX;
         }
         ImGui.endCombo();
     }
@@ -89,7 +89,7 @@ export function equipmentMenu(core: IMMCore, ImGui: IImGui) {
     }
 }
 
-export function bossMasksMenu(core: IMMCore, ImGui: IImGui) {
+export function bossMasksMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.checkbox("Odolwa", [core.save.questStatus.odolwaRemains])) {
         core.save.questStatus.odolwaRemains = !core.save.questStatus.odolwaRemains;
     }
@@ -104,7 +104,7 @@ export function bossMasksMenu(core: IMMCore, ImGui: IImGui) {
     }
 }
 
-export function songsMenu(core: IMMCore, ImGui: IImGui) {
+export function songsMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.checkbox("Song of Time", [core.save.questStatus.songOfTime])) {
         core.save.questStatus.songOfTime = !core.save.questStatus.songOfTime;
     }

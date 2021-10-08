@@ -1,7 +1,7 @@
-import { IMMCore } from "MajorasMask/API/MMAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { IImGui } from "modloader64_api/Sylvain/ImGui";
 
-export function renderMasksMenu(core: IMMCore, ImGui: IImGui) {
+export function renderMasksMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
     if (ImGui.checkbox("Deku Mask", [core.save.inventory.FIELD_MASK_DEKU])) {
         core.save.inventory.FIELD_MASK_DEKU = !core.save.inventory.FIELD_MASK_DEKU;
     }

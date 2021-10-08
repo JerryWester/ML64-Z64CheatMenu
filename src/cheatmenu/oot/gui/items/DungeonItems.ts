@@ -1,7 +1,7 @@
-import { IOOTCore, VANILLA_KEY_INDEXES } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 import { IImGui, ComboFlags, number_ref } from "modloader64_api/Sylvain/ImGui";
 
-export function dekuTree(core: IOOTCore, ImGui: IImGui){
+export function dekuTree(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.DEKU_TREE.map])){
         core.save.dungeonItemManager.DEKU_TREE.map = !core.save.dungeonItemManager.DEKU_TREE.map;
     }
@@ -10,7 +10,7 @@ export function dekuTree(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function dodongosCavern(core: IOOTCore, ImGui: IImGui){
+export function dodongosCavern(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.DODONGOS_CAVERN.map])){
         core.save.dungeonItemManager.DODONGOS_CAVERN.map = !core.save.dungeonItemManager.DODONGOS_CAVERN.map;
     }
@@ -19,7 +19,7 @@ export function dodongosCavern(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function jabuJabusBelly(core: IOOTCore, ImGui: IImGui){
+export function jabuJabusBelly(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.JABJ_JABUS_BELLY.map])){
         core.save.dungeonItemManager.JABJ_JABUS_BELLY.map = !core.save.dungeonItemManager.JABJ_JABUS_BELLY.map;
     }
@@ -28,7 +28,7 @@ export function jabuJabusBelly(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function forestTemple(core: IOOTCore, ImGui: IImGui){
+export function forestTemple(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.FOREST_TEMPLE.map])){
         core.save.dungeonItemManager.FOREST_TEMPLE.map = !core.save.dungeonItemManager.FOREST_TEMPLE.map;
     }
@@ -39,15 +39,15 @@ export function forestTemple(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.FOREST_TEMPLE.bossKey = !core.save.dungeonItemManager.FOREST_TEMPLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let forestTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.FOREST_TEMPLE)];
+        let forestTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.FOREST_TEMPLE)];
         if(ImGui.sliderInt("##forestTempleKeys", forestTempleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.FOREST_TEMPLE, forestTempleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.FOREST_TEMPLE, forestTempleKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function fireTemple(core: IOOTCore, ImGui: IImGui){
+export function fireTemple(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.FIRE_TEMPLE.map])){
         core.save.dungeonItemManager.FIRE_TEMPLE.map = !core.save.dungeonItemManager.FIRE_TEMPLE.map;
     }
@@ -58,15 +58,15 @@ export function fireTemple(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.FIRE_TEMPLE.bossKey = !core.save.dungeonItemManager.FIRE_TEMPLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let fireTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.FIRE_TEMPLE)];
+        let fireTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.FIRE_TEMPLE)];
         if(ImGui.sliderInt("##fireTempleKeys", fireTempleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.FIRE_TEMPLE, fireTempleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.FIRE_TEMPLE, fireTempleKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function waterTemple(core: IOOTCore, ImGui: IImGui){
+export function waterTemple(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.WATER_TEMPLE.map])){
         core.save.dungeonItemManager.WATER_TEMPLE.map = !core.save.dungeonItemManager.WATER_TEMPLE.map;
     }
@@ -77,15 +77,15 @@ export function waterTemple(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.WATER_TEMPLE.bossKey = !core.save.dungeonItemManager.WATER_TEMPLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let waterTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.WATER_TEMPLE)];
+        let waterTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.WATER_TEMPLE)];
         if(ImGui.sliderInt("##waterTempleKeys", waterTempleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.WATER_TEMPLE, waterTempleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.WATER_TEMPLE, waterTempleKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function spiritTemple(core: IOOTCore, ImGui: IImGui){
+export function spiritTemple(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.SPIRIT_TEMPLE.map])){
         core.save.dungeonItemManager.SPIRIT_TEMPLE.map = !core.save.dungeonItemManager.SPIRIT_TEMPLE.map;
     }
@@ -96,15 +96,15 @@ export function spiritTemple(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.SPIRIT_TEMPLE.bossKey = !core.save.dungeonItemManager.SPIRIT_TEMPLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let spiritTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.SPIRIT_TEMPLE)];
+        let spiritTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.SPIRIT_TEMPLE)];
         if(ImGui.sliderInt("##spiritTempleKeys", spiritTempleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.SPIRIT_TEMPLE, spiritTempleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.SPIRIT_TEMPLE, spiritTempleKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function shadowTemple(core: IOOTCore, ImGui: IImGui){
+export function shadowTemple(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.SHADOW_TEMPLE.map])){
         core.save.dungeonItemManager.SHADOW_TEMPLE.map = !core.save.dungeonItemManager.SHADOW_TEMPLE.map;
     }
@@ -115,15 +115,15 @@ export function shadowTemple(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.SHADOW_TEMPLE.bossKey = !core.save.dungeonItemManager.SHADOW_TEMPLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let shadowTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.SHADOW_TEMPLE)];
+        let shadowTempleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.SHADOW_TEMPLE)];
         if(ImGui.sliderInt("##shadowTempleKeys", shadowTempleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.SHADOW_TEMPLE, shadowTempleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.SHADOW_TEMPLE, shadowTempleKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function bottomOfTheWell(core: IOOTCore, ImGui: IImGui){
+export function bottomOfTheWell(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.BOTTOM_OF_THE_WELL.map])){
         core.save.dungeonItemManager.BOTTOM_OF_THE_WELL.map = !core.save.dungeonItemManager.BOTTOM_OF_THE_WELL.map;
     }
@@ -131,15 +131,15 @@ export function bottomOfTheWell(core: IOOTCore, ImGui: IImGui){
         core.save.dungeonItemManager.BOTTOM_OF_THE_WELL.compass = !core.save.dungeonItemManager.BOTTOM_OF_THE_WELL.compass;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let bottomOfTheWellKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.BOTTOM_OF_THE_WELL)];
+        let bottomOfTheWellKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.BOTTOM_OF_THE_WELL)];
         if(ImGui.sliderInt("##bottomOfTheWellKeys", bottomOfTheWellKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.BOTTOM_OF_THE_WELL, bottomOfTheWellKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.BOTTOM_OF_THE_WELL, bottomOfTheWellKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function iceCavern(core: IOOTCore, ImGui: IImGui){
+export function iceCavern(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Map", [core.save.dungeonItemManager.ICE_CAVERN.map])){
         core.save.dungeonItemManager.ICE_CAVERN.map = !core.save.dungeonItemManager.ICE_CAVERN.map;
     }
@@ -148,37 +148,37 @@ export function iceCavern(core: IOOTCore, ImGui: IImGui){
     }
 }
 
-export function gerudoFortress(core: IOOTCore, ImGui: IImGui){
+export function gerudoFortress(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Gerudo Membership Card", [core.save.questStatus.gerudoMembershipCard])){
         core.save.questStatus.gerudoMembershipCard = !core.save.questStatus.gerudoMembershipCard;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let gerudoFortressKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.GERUDO_FORTRESS)];
+        let gerudoFortressKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GERUDO_FORTRESS)];
         if(ImGui.sliderInt("##gerudoFortressKeys", gerudoFortressKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.GERUDO_FORTRESS, gerudoFortressKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GERUDO_FORTRESS, gerudoFortressKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function gerudoTrainingGrounds(core: IOOTCore, ImGui: IImGui){
+export function gerudoTrainingGrounds(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let gerudoTrainingGroundsKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.GERUDO_TRAINING_GROUND)];
+        let gerudoTrainingGroundsKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GERUDO_TRAINING_GROUND)];
         if(ImGui.sliderInt("##gerudoTrainingGroundsKeys", gerudoTrainingGroundsKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.GERUDO_TRAINING_GROUND, gerudoTrainingGroundsKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GERUDO_TRAINING_GROUND, gerudoTrainingGroundsKeys[0]);
         }
         ImGui.endCombo();
     }
 }
 
-export function ganonsCastle(core: IOOTCore, ImGui: IImGui){
+export function ganonsCastle(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.checkbox("Boss Key", [core.save.dungeonItemManager.GANONS_CASTLE.bossKey])){
         core.save.dungeonItemManager.GANONS_CASTLE.bossKey = !core.save.dungeonItemManager.GANONS_CASTLE.bossKey;
     }
     if(ImGui.beginCombo("Small Keys", "", ComboFlags.NoPreview)){
-        let ganonsCastleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(VANILLA_KEY_INDEXES.GANONS_CASTLE)];
+        let ganonsCastleKeys: number_ref = [core.save.keyManager.getKeyCountForIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GANONS_CASTLE)];
         if(ImGui.sliderInt("##ganonsCastleKeys", ganonsCastleKeys, 0, 9)){
-            core.save.keyManager.setKeyCountByIndex(VANILLA_KEY_INDEXES.GANONS_CASTLE, ganonsCastleKeys[0]);
+            core.save.keyManager.setKeyCountByIndex(Z64API.OoT.VANILLA_KEY_INDEXES.GANONS_CASTLE, ganonsCastleKeys[0]);
         }
         ImGui.endCombo();
     }

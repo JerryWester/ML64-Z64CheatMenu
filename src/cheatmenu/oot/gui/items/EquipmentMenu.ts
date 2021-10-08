@@ -1,7 +1,7 @@
 import { IImGui, ComboFlags, number_ref } from "modloader64_api/Sylvain/ImGui";
-import { IOOTCore, Strength, ZoraScale } from "modloader64_api/OOT/OOTAPI";
+import * as Z64API from 'Z64Lib/API/imports';
 
-export function renderEquipmentMenu(core: IOOTCore, ImGui: IImGui){
+export function renderEquipmentMenu(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     if(ImGui.beginCombo("Swords", "", ComboFlags.NoPreview)){
         if(ImGui.checkbox("Kokiri Sword", [core.save.swords.kokiriSword])){
             core.save.swords.kokiriSword = !core.save.swords.kokiriSword;
@@ -96,17 +96,17 @@ export function renderEquipmentMenu(core: IOOTCore, ImGui: IImGui){
         ImGui.endCombo();
     }
     if(ImGui.beginCombo("Gauntlet", "", ComboFlags.NoPreview)){
-        if(ImGui.selectable("None", core.save.inventory.strength === Strength.NONE)){
-            core.save.inventory.strength = Strength.NONE;
+        if(ImGui.selectable("None", core.save.inventory.strength === Z64API.OoT.Strength.NONE)){
+            core.save.inventory.strength = Z64API.OoT.Strength.NONE;
         }
-        if(ImGui.selectable("Goron Bracelet", core.save.inventory.strength === Strength.GORON_BRACELET)){
-            core.save.inventory.strength = Strength.GORON_BRACELET;
+        if(ImGui.selectable("Goron Bracelet", core.save.inventory.strength === Z64API.OoT.Strength.GORON_BRACELET)){
+            core.save.inventory.strength = Z64API.OoT.Strength.GORON_BRACELET;
         }
-        if(ImGui.selectable("Silver Gauntlets", core.save.inventory.strength === Strength.SILVER_GAUNTLETS)){
-            core.save.inventory.strength = Strength.SILVER_GAUNTLETS;
+        if(ImGui.selectable("Silver Gauntlets", core.save.inventory.strength === Z64API.OoT.Strength.SILVER_GAUNTLETS)){
+            core.save.inventory.strength = Z64API.OoT.Strength.SILVER_GAUNTLETS;
         }
-        if(ImGui.selectable("Golden Gauntlets", core.save.inventory.strength === Strength.GOLDEN_GAUNTLETS)){
-            core.save.inventory.strength = Strength.GOLDEN_GAUNTLETS;
+        if(ImGui.selectable("Golden Gauntlets", core.save.inventory.strength === Z64API.OoT.Strength.GOLDEN_GAUNTLETS)){
+            core.save.inventory.strength = Z64API.OoT.Strength.GOLDEN_GAUNTLETS;
         }
         // if(ImGui.selectable("Black Gauntlets", core.save.inventory.strength === Strength.BLACK_GAUNTLETS)){
         //     core.save.inventory.strength = Strength.BLACK_GAUNTLETS;
@@ -120,14 +120,14 @@ export function renderEquipmentMenu(core: IOOTCore, ImGui: IImGui){
         ImGui.endCombo();
     }
     if(ImGui.beginCombo("Scale", "", ComboFlags.NoPreview)){
-        if(ImGui.selectable("None", core.save.inventory.swimming === ZoraScale.NONE)){
-            core.save.inventory.swimming = ZoraScale.NONE;
+        if(ImGui.selectable("None", core.save.inventory.swimming === Z64API.OoT.ZoraScale.NONE)){
+            core.save.inventory.swimming = Z64API.OoT.ZoraScale.NONE;
         }
-        if(ImGui.selectable("Silver Scale", core.save.inventory.swimming === ZoraScale.SILVER)){
-            core.save.inventory.swimming = ZoraScale.SILVER;
+        if(ImGui.selectable("Silver Scale", core.save.inventory.swimming === Z64API.OoT.ZoraScale.SILVER)){
+            core.save.inventory.swimming = Z64API.OoT.ZoraScale.SILVER;
         }
-        if(ImGui.selectable("Golden Scale", core.save.inventory.swimming === ZoraScale.GOLDEN)){
-            core.save.inventory.swimming = ZoraScale.GOLDEN;
+        if(ImGui.selectable("Golden Scale", core.save.inventory.swimming === Z64API.OoT.ZoraScale.GOLDEN)){
+            core.save.inventory.swimming = Z64API.OoT.ZoraScale.GOLDEN;
         }
         ImGui.endCombo();
     }

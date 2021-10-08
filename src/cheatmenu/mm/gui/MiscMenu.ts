@@ -1,5 +1,5 @@
 import { ComboFlags, IImGui, number_ref, string_ref } from 'modloader64_api/Sylvain/ImGui';
-import { IMMCore } from 'MajorasMask/API/MMAPI';
+import * as Z64API from 'Z64Lib/API/imports';
 import IMemory from 'modloader64_api/IMemory';
 import { grav } from '../cheatmenu';
 
@@ -47,7 +47,7 @@ const hours: string[] = [
     "5 AM",
 ];
 
-export function renderMiscMenu(core: IMMCore, emulator: IMemory, ImGui: IImGui) {
+export function renderMiscMenu(core: Z64API.MM.IMMCore, emulator: IMemory, ImGui: IImGui) {
     if (ImGui.beginCombo("Time", "", ComboFlags.NoPreview)) {
         ImGui.text("Time");
         let time: number_ref = [(core.save.day_time + Math.floor((24 - 6) * (0xFFFF/24))) % 0xFFFF];
