@@ -37,19 +37,19 @@ export class CheatmenuClient {
         }
     }
 
-    // @onViUpdate()
-    // onViUpdate() {
+    @onViUpdate()
+    onViUpdate() {
 
-    //     switch (this.game) {
-    //         case Z64LibSupportedGames.OCARINA_OF_TIME:
-    //             OOT.onViUpdate(this.ModLoader, this.core.OOT!);
-    //             break;
-    //         case Z64LibSupportedGames.MAJORAS_MASK:
-    //             MM.onViUpdate(this.ModLoader, this.core.MM!);
-    //             break;
-    //     }
+        switch (this.game) {
+            case Z64LibSupportedGames.OCARINA_OF_TIME:
+                OOT.onViUpdate(this.ModLoader, this.core.OOT!);
+                break;
+            case Z64LibSupportedGames.MAJORAS_MASK:
+                MM.onViUpdate(this.ModLoader, this.core.MM!);
+                break;
+        }
 
-    // }
+    }
 
     @EventHandler(Z64API.MM.MMEvents.ON_SCENE_CHANGE)
     onSceneChange() {
