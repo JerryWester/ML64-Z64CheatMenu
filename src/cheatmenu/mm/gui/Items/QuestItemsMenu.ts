@@ -52,6 +52,9 @@ export function equipmentMenu(core: Z64API.MM.IMMCore, ImGui: IImGui) {
         if (ImGui.selectable("Giant", core.save.inventory.wallet === Z64API.Z64.Wallet.GIANT)) {
             core.save.inventory.wallet = Z64API.Z64.Wallet.GIANT;
         }
+        if (ImGui.selectable("Royal", core.save.inventory.wallet === Z64API.Z64.Wallet.ROYAL)) {
+            core.save.inventory.wallet = Z64API.Z64.Wallet.ROYAL;
+        }
         ImGui.endCombo();
     }
     if (ImGui.beginCombo("Quiver", "", ComboFlags.NoPreview)) {
