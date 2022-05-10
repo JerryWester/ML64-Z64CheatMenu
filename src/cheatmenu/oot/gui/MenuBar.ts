@@ -10,7 +10,6 @@ import { renderConsumablesMenu } from './ConsumablesMenu';
 export function renderMenuBar(core: Z64API.OoT.IOOTCore, ImGui: IImGui){
     
     if(ImGui.beginMainMenuBar()){
-        console.log("do you get this far")
         if(ImGui.beginMenu("Mods")){
             if(ImGui.beginMenu("Cheat Menu")){
                 if(ImGui.beginMenu("Link")){
