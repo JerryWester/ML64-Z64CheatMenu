@@ -51,7 +51,7 @@ export class CheatmenuClient {
 
     }
 
-    @EventHandler(Z64API.MM.MMEvents.ON_SCENE_CHANGE)
+    @EventHandler(Z64API.Z64.Z64Events.ON_SCENE_CHANGE)
     onSceneChange() {
         if (this.game === Z64LibSupportedGames.OCARINA_OF_TIME) {
             OOT.entranceIndex[0] = (this.core.OOT!).save.entrance_index.toString(16);
@@ -61,7 +61,7 @@ export class CheatmenuClient {
             }
     }
 
-    @EventHandler(Z64API.MM.MMEvents.ON_AGE_CHANGE)
+    @EventHandler(Z64API.Z64.Z64Events.ON_AGE_CHANGE)
     onAgeChange() {
         if (this.game === Z64LibSupportedGames.MAJORAS_MASK) {
             MM.grav.updateGrav = false;
